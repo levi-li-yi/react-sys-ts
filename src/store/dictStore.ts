@@ -1,5 +1,3 @@
-import {StoreState} from 'models/store/index';
-
 const CHANGE = 'changeValue';
 type CHANGE  = typeof CHANGE;
 
@@ -31,8 +29,20 @@ function add(): Add {
     }
 }
 
+export interface State {
+    value: string;
+    inputTypeValue: string;
+    typeList: Array<string>;
+}
+
+export const initState: State = {
+    value: '',
+    inputTypeValue: '',
+    typeList: []
+}
+
 // reducer
-export function dictReducer(state: StoreState, action: Change): StoreState {
+export function reducer(state: State = initState, action: Change) {
     if (action.type === CHANGE) {
         const newState = JSON.parse(JSON.stringify(state));
         newState.inputTypeValue = action.value;
