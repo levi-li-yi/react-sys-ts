@@ -6,7 +6,7 @@ interface Todo {
 }
 
 // action
-let nextId = 0;
+//let nextId = 0;
 
 enum ActionTypes {
     ADD_TODO = '[todos] TOGGLE_TODO',
@@ -30,7 +30,7 @@ interface ToggleTodoAction {
 }
 
 // action creator: addTodo
-function addTodo(name: string): AddTodoAction {
+/* function addTodo(name: string): AddTodoAction {
     return {
         key: 'add',
         type: ActionTypes.ADD_TODO,
@@ -53,7 +53,7 @@ function toggleTodo(todoId: number): ToggleTodoAction {
             todoId,
         }
     }
-}
+} */
 
 type Action = AddTodoAction | ToggleTodoAction;
 

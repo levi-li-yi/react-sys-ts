@@ -1,19 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Route} from 'react-router-dom';
 import menuTree from 'mock/menuTree';
 import './Layout.scss'
 import NavBar from './component/NavBar';
 import SideBar from './component/SideBar';
-import {Routes, Tree} from 'models/router/index'
+import {Routes} from 'models/router/index'
 
 function Layout(props: any) {
-    const [menu, setMenu] = useState(menuTree)
     const {routes} = props
     const links  = getSiderbarList()
     // 获取当前一级菜单下的二级菜单，用来渲染侧边栏
     function getSiderbarList() {
-        let {location} = props;
-        const pathname = location.pathname || '';
+        const pathname = props.location.pathname || '';
         const model = menuTree.find((item) => {
             return item.children.find((value: any) => value.href === pathname.substr(1))
         })

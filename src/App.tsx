@@ -1,4 +1,4 @@
-import React, {Suspense, useState} from 'react';
+import React, {Suspense} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import router from './router/index';
 import {StoreContext} from 'redux-react-hook';

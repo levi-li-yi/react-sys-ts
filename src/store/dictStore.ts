@@ -1,3 +1,9 @@
+export const types = {
+    CHANGE: 'changeValue',
+    ADD: 'addItem',
+    REMOVE: 'removeItem'
+};
+
 const CHANGE = 'changeValue';
 type CHANGE  = typeof CHANGE;
 
@@ -16,7 +22,7 @@ interface Add {
 
 type DictAction = Change | Add;
 
-function change(): Change {
+/* function change(): Change {
     return {
         type: CHANGE,
         value: ''
@@ -27,7 +33,7 @@ function add(): Add {
     return {
         type: ADD
     }
-}
+} */
 
 export interface State {
     value: string;
