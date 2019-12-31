@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {Input, Button} from 'antd';
 import {useMappedState, useDispatch} from 'redux-react-hook';
-import {types} from 'store/dictStore'
+import {change, add} from 'store/dictStore'
 
 function ReduxPage(props: any) {
     const inputTypeValue = useMappedState(state => state.dict.inputTypeValue)
@@ -10,23 +10,17 @@ function ReduxPage(props: any) {
 
     // 输入框change事件
     function inputChange(e: any) {
-        const action = {
-            type: types.CHANGE,
-            value: e.target.value
-        }
-        dispatch(action)
+        dispatch(change(e.target.value))
     }
 
     // 按钮添加
     function addItem() {
-        const action = {
-            type: types.ADD
-        }
-        dispatch(action)
+        dispatch(add())
     }
 
     return (
         <div>
+            <p>ReduxPage</p>
             <Input placeholder="请输入" value={inputTypeValue} onChange={inputChange}/>
             <Button onClick={addItem}>提交</Button>
             <ul>

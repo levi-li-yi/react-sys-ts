@@ -22,18 +22,19 @@ interface Add {
 
 type DictAction = Change | Add;
 
-/* function change(): Change {
+// actions creator 在派发dispatch时使用creator，只将变更状态向组件中暴露
+export function change(value: string): Change {
     return {
         type: CHANGE,
-        value: ''
+        value: value
     }
 }
 
-function add(): Add {
+export function add(): Add {
     return {
         type: ADD
     }
-} */
+}
 
 export interface State {
     value: string;
