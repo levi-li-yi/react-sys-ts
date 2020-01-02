@@ -88,5 +88,8 @@ export function fetch(requestData: AxiosRequestConfig) {
     if (requestData.method.toLocaleLowerCase() === 'post') {
         serviceData.data = requestData.data || {}
     }
+    if (!serviceData.headers) {
+        if (requestData.method === 'get') return axios.get(requestData.url)
+    }
     return service(serviceData)
 }

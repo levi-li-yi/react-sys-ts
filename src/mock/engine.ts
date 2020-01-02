@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 
 export default function Engine() {
     Mock.setup({
-        timeout: 300
+        timeout: 500
     })
     return Mock
 }

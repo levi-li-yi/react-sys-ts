@@ -4,7 +4,8 @@ import {useMappedState, useDispatch} from 'redux-react-hook';
 import {change, add} from 'store/dictStore'
 import {getCustomer} from 'services/customer'
 
-//import 'mock/customer' 
+import 'mock/customer' 
+import {Customer} from 'models/page/customer'
 
 function ReduxPage(props: any) {
     // 组件状态
@@ -15,9 +16,10 @@ function ReduxPage(props: any) {
     const typeList = useMappedState(state => state.dict.typeList)
     const dispatch = useDispatch()
 
+    // 获取用户列表
     useEffect(() => {
         getCustomerList()
-    }, [list])
+    }, [])
 
     // 输入框change事件
     function inputChange(e: any) {
@@ -33,7 +35,8 @@ function ReduxPage(props: any) {
     function getCustomerList() {
         getCustomer().then((res) => {
             const data = res.data
-            setCustomer(data)
+            console.log(data)
+            setCustomer(data.data)
         })
     }
 
@@ -42,10 +45,18 @@ function ReduxPage(props: any) {
             <p>ReduxPage</p>
             <Input placeholder="请输入" value={inputTypeValue} onChange={inputChange}/>
             <Button onClick={addItem}>提交</Button>
+            <Button onClick={getCustomerList}>刷新</Button>
             <ul>
                 {
                     typeList.map((item: string, index: number) => {
                         return <li key={index}>{item}</li>
+                    })
+                }
+            </ul>
+            <ul>
+                {
+                    list.map((item: Customer, index: number) => {
+                        return <li key={index}>{item.name}</li>
                     })
                 }
             </ul>
