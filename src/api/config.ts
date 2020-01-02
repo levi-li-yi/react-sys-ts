@@ -48,9 +48,13 @@ service.interceptors.response.use((response: AxiosResponse) => {
             } else {
                 msg = 'Something Happened'
             }
+            console.log(msg)
         }
         return Promise.reject(error)
 })
+
+// post Type
+export interface requestType extends AxiosRequestConfig {}
 
 // create api functin
 export function fetch(requestData: AxiosRequestConfig) {
@@ -63,7 +67,7 @@ export function fetch(requestData: AxiosRequestConfig) {
         return Promise.reject(err)
     }
 
-    const serviceData = <AxiosRequestConfig>{
+    const serviceData: AxiosRequestConfig = {
         url: requestData.url,
         method: requestData.method,
         headers: requestData.headers,
