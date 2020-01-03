@@ -32,7 +32,7 @@ function ReduxPage(props: any) {
     }
     
     // 获取客户数据
-    function getCustomerList() {
+    function getCustomerList(): void {
         getCustomer().then((res) => {
             const data = res.data
             console.log(data)
