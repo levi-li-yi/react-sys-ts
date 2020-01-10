@@ -7,9 +7,8 @@ function anotationClass(target: any) {
 
 // 方法装饰器:最先执行方法装饰器
 function anotationMethods (target: any, property: any, descriptor: any) {
-    // target
     console.log('===== Method Anotation ' + property + "====")
-    // 构造函数constructor、所装饰的方法instanceMember
+    // target对于静态成员来说是类的构造函数，对于实例成员是类的原型对象
     console.log('target:', target)
     // 方法名称instanceMember
     console.log('property:', property)
