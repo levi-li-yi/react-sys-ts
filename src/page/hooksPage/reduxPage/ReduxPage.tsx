@@ -6,6 +6,7 @@ import {getCustomer} from 'services/customer'
 
 import 'mock/customer' 
 import {Customer} from 'models/page/customer'
+import Example from 'models/page/decor'
 
 function ReduxPage(props: any) {
     // 组件状态
@@ -19,6 +20,7 @@ function ReduxPage(props: any) {
     // 获取用户列表
     useEffect(() => {
         getCustomerList()
+        new Example()
     }, [])
 
     // 输入框change事件
