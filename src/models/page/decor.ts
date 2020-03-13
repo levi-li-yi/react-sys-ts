@@ -14,7 +14,7 @@ function anotationMethods (target: any, property: any, descriptor: any) {
     console.log('property:', property)
     // 属性描述value\wirtable\enumerable\configurable
     console.log('descriptor:', descriptor)
-    window.devicePixelRatio
+   // window.devicePixelRatio
 }
 
 @anotationClass

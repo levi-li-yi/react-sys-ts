@@ -20,6 +20,7 @@ function ReduxPage(props: any) {
     // 获取用户列表
     useEffect(() => {
         getCustomerList()
+        testTask()
         new Example()
     }, [])
 
@@ -40,6 +41,14 @@ function ReduxPage(props: any) {
             console.log(data)
             setCustomer(data.data)
         })
+    }
+    // 测试宏任务、微任务执行顺序
+    function testTask() {
+        setTimeout(() => {
+            console.log('宏任务');
+        })
+        Promise.resolve(console.log('微任务'))
+        Promise.resolve(console.log('微任务2'))
     }
 
     return (
