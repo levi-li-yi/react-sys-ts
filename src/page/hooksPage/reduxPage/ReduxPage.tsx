@@ -50,6 +50,44 @@ function ReduxPage(props: any) {
         Promise.resolve(console.log('微任务'))
         Promise.resolve(console.log('微任务2'))
     }
+    function china(){
+        //console.log('china中国')
+        var p =new Promise(
+            function( resolve,reject ) {
+                setTimeout(function(){
+                    //console.log('中国  国家')
+                    resolve('教育大省份')
+                },2000)
+            }
+        )
+        return  p;
+    }
+
+    function jiangshu(data: any){
+        //console.log('江苏'+data);
+        var p=new Promise(function(resolve,reject){
+            setTimeout(function (){
+                //console.log('江苏 省份')
+                resolve(data + '江苏');
+            },2000)
+        })
+        return p;
+    }
+
+    function xian(data: any){
+        //console.log('盱眙县'+data)
+        var p=new Promise(function(resolve,reject){
+            setTimeout(function(){
+                //console.log('盱眙县');
+                resolve (data + '淮河镇')
+            },2000)
+        })
+        return p;
+    }
+    china()
+        .then(jiangshu)
+        .then(xian)
+        .then(function(data){console.log(data)})
 
     return (
         <div>
